@@ -1,7 +1,9 @@
 package main
 
-import "app/functions"
+import "app/interfaces"
 
 func main() {
-	functions.Calc()
+	//functions.Calc()
+	interfaces.Football()
+
 }
