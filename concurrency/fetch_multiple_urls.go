@@ -8,33 +8,15 @@ import (
 	"time"
 )
 
-type Todo struct {
-	UserID    int
-	ID        int
-	Title     string
-	Completed bool
-}
-
-const baseURL = "https://jsonplaceholder.typicode.com/todos/"
-
-func makeList() []int {
-	list := make([]int, 0, 25)
-
-	for i := 1; i <= 25; i++ {
-		list = append(list, i)
-	}
-	return list
-}
-
 func FetchLineByLine() {
 
-	list := makeList()
+	list := makeList(200)
 
 	start := time.Now()
 
 	for _, v := range list {
 
-		RegularFetch(baseURL + fmt.Sprintf("%v", v))
+		RegularFetch(baseTodoURL + fmt.Sprintf("%v", v))
 	}
 
 	took := time.Since(start).Seconds()
@@ -46,7 +28,7 @@ func PromiseAllLikeFunctionWithWG() {
 
 	var wg sync.WaitGroup
 
-	list := makeList()
+	list := makeList(200)
 
 	wg.Add(len(list))
 
@@ -54,7 +36,7 @@ func PromiseAllLikeFunctionWithWG() {
 
 	for _, v := range list {
 
-		go WGGoroutineFetch(baseURL+fmt.Sprintf("%v", v), &wg)
+		go WGGoroutineFetch(baseTodoURL+fmt.Sprintf("%v", v), &wg)
 	}
 
 	wg.Wait()
@@ -65,7 +47,7 @@ func PromiseAllLikeFunctionWithWG() {
 }
 func PromiseAllLikeFunctionWithUnbuffCh() {
 
-	list := makeList()
+	list := makeList(200)
 
 	start := time.Now()
 
@@ -73,7 +55,7 @@ func PromiseAllLikeFunctionWithUnbuffCh() {
 
 		ch := make(chan string)
 
-		go ChGoroutineFetch(baseURL+fmt.Sprintf("%v", v), ch)
+		go ChGoroutineFetch(baseTodoURL+fmt.Sprintf("%v", v), ch)
 		fmt.Println(<-ch)
 	}
 
@@ -83,7 +65,7 @@ func PromiseAllLikeFunctionWithUnbuffCh() {
 }
 func PromiseAllLikeFunctionWithBuffCh() {
 
-	list := makeList()
+	list := makeList(200)
 
 	start := time.Now()
 
@@ -91,7 +73,7 @@ func PromiseAllLikeFunctionWithBuffCh() {
 
 	for _, v := range list {
 
-		go ChGoroutineFetch(baseURL+fmt.Sprintf("%v", v), ch)
+		go ChGoroutineFetch(baseTodoURL+fmt.Sprintf("%v", v), ch)
 
 	}
 
@@ -121,6 +103,7 @@ func PromiseAllLikeFunctionWithBuffCh() {
 		}
 		fmt.Println(msg)
 	}
+	defer close(ch)
 
 	took := time.Since(start).Seconds()
 
