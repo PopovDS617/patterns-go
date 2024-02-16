@@ -1,9 +1,12 @@
 package main
 
-import "app/interfaces"
+import (
+	slicespkg "app/slices"
+)
 
 func main() {
 	//functions.Calc()
-	interfaces.Football()
-
+	// interfaces.Football()
+	// pointers.Pointer1()
+	slicespkg.Slice1()
 }
