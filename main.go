@@ -11,6 +11,6 @@ func main() {
 	// concurrency.PromiseAllLikeFunctionWithWG()
 	// concurrency.PromiseAllLikeFunctionWithUnbuffCh()
 	// concurrency.PromiseAllLikeFunctionWithBuffCh()
-	concurrency.GetAll()
+	concurrency.Pipeline()
 
 }
