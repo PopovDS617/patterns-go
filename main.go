@@ -1,7 +1,7 @@
 package main
 
 import (
-	"app/internals"
+	"app/concurrency"
 )
 
 func main() {
@@ -14,6 +14,10 @@ func main() {
 	// concurrency.PromiseAllLikeFunctionWithUnbuffCh()
 	// concurrency.PromiseAllLikeFunctionWithBuffCh()
 	// concurrency.Pipeline()
-	internals.CaptLoopVars()
+	// internals.CaptLoopVars()
+	// users := concurrency.MakeUsersList(50)
+	// concurrency.DeactivateUsersSemaphore(users, 10)
+	// concurrency.DeactivateUsersWorkerPool(users, 10)
+	concurrency.Semaphore2()
 
 }

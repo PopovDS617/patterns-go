@@ -26,3 +26,33 @@ func makeList(size int) []int {
 
 	return res
 }
+
+type User struct {
+	ID     int
+	Active bool
+}
+
+func MakeUsersList(v int) []User {
+	users := make([]User, 0, v)
+
+	for i := 0; i < v; i++ {
+
+		user := User{
+			ID:     i + 1,
+			Active: true,
+		}
+
+		users = append(users, user)
+	}
+	return users
+}
+
+func (u *User) Deactivate() error {
+	u.Active = false
+	return nil
+}
+
+type ResultWithError struct {
+	User User
+	Err  error
+}
