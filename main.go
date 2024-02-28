@@ -1,6 +1,8 @@
 package main
 
-import "app/concurrency"
+import (
+	"app/internals"
+)
 
 func main() {
 	// functions.Calc()
@@ -11,6 +13,7 @@ func main() {
 	// concurrency.PromiseAllLikeFunctionWithWG()
 	// concurrency.PromiseAllLikeFunctionWithUnbuffCh()
 	// concurrency.PromiseAllLikeFunctionWithBuffCh()
-	concurrency.Pipeline()
+	// concurrency.Pipeline()
+	internals.CaptLoopVars()
 
 }
