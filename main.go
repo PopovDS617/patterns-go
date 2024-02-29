@@ -1,7 +1,7 @@
 package main
 
 import (
-	"app/concurrency"
+	workerpool "app/concurrency/worker_pool"
 )
 
 func main() {
@@ -16,8 +16,9 @@ func main() {
 	// concurrency.Pipeline()
 	// internals.CaptLoopVars()
 	// users := concurrency.MakeUsersList(50)
-	// concurrency.DeactivateUsersSemaphore(users, 10)
-	// concurrency.DeactivateUsersWorkerPool(users, 10)
-	concurrency.Semaphore2()
+	// semaphore.DeactivateUsersSemaphore(users, 10)
+	// workerpool.DeactivateUsersWorkerPool(users, 10)
+	// semaphore.Semaphore2()
+	workerpool.WorkerPool2()
 
 }

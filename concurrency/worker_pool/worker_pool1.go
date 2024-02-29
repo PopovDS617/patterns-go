@@ -1,28 +1,29 @@
-package concurrency
+package workerpool
 
 import (
+	"app/concurrency"
 	"fmt"
 	"sync"
 )
 
-func deactivateUser(wg *sync.WaitGroup, inCh <-chan User, outCh chan<- ResultWithError) {
+func deactivateUser(wg *sync.WaitGroup, inCh <-chan concurrency.User, outCh chan<- concurrency.ResultWithError) {
 	defer wg.Done()
 
 	for usr := range inCh {
 		err := usr.Deactivate()
-		outCh <- ResultWithError{
+		outCh <- concurrency.ResultWithError{
 			User: usr,
 			Err:  err,
 		}
 	}
 }
 
-func DeactivateUsersWorkerPool(usrs []User, wgCount int) ([]User, error) {
-	inputCh := make(chan User)
-	outputCh := make(chan ResultWithError)
+func DeactivateUsersWorkerPool(usrs []concurrency.User, wgCount int) ([]concurrency.User, error) {
+	inputCh := make(chan concurrency.User)
+	outputCh := make(chan concurrency.ResultWithError)
 	wg := &sync.WaitGroup{}
 
-	output := make([]User, 0, len(usrs))
+	output := make([]concurrency.User, 0, len(usrs))
 
 	go func() {
 		defer close(inputCh)

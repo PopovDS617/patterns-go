@@ -1,6 +1,7 @@
-package concurrency
+package semaphore
 
 import (
+	"app/concurrency"
 	"fmt"
 	"time"
 )
@@ -17,20 +18,20 @@ func (s *Semaphore) Release() {
 	<-s.C
 }
 
-func DeactivateUsersSemaphore(users []User, gCount int) ([]User, error) {
+func DeactivateUsersSemaphore(users []concurrency.User, gCount int) ([]concurrency.User, error) {
 
 	sem := Semaphore{
 		C: make(chan struct{}, gCount),
 	}
 
-	outputCh := make(chan ResultWithError, len(users))
+	outputCh := make(chan concurrency.ResultWithError, len(users))
 	signalCh := make(chan struct{})
 
-	output := make([]User, 0, len(users))
+	output := make([]concurrency.User, 0, len(users))
 
 	for _, v := range users {
 
-		go func(user User) {
+		go func(user concurrency.User) {
 			fmt.Println("waiting", user.ID)
 			sem.Acquire()       // let the first batch in
 			defer sem.Release() // clean one item from buffer
@@ -41,7 +42,7 @@ func DeactivateUsersSemaphore(users []User, gCount int) ([]User, error) {
 			err := user.Deactivate()
 
 			select {
-			case outputCh <- ResultWithError{
+			case outputCh <- concurrency.ResultWithError{
 				User: user,
 				Err:  err,
 			}:

@@ -1,18 +1,9 @@
-package concurrency
+package semaphore
 
 import (
 	"fmt"
 	"time"
 )
-
-func printIt(sem chan bool, msg string, iter int) {
-
-	// release the resource when we're done
-	defer func() { <-sem }()
-
-	fmt.Println(msg, " ", iter)
-
-}
 
 func Semaphore2() {
 
