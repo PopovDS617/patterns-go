@@ -1,7 +1,7 @@
 package main
 
 import (
-	workerpool "app/concurrency/worker_pool"
+	"app/concurrency"
 )
 
 func main() {
@@ -19,6 +19,7 @@ func main() {
 	// semaphore.DeactivateUsersSemaphore(users, 10)
 	// workerpool.DeactivateUsersWorkerPool(users, 10)
 	// semaphore.Semaphore2()
-	workerpool.WorkerPool2()
+	// workerpool.WorkerPool2()
+	concurrency.Select()
 
 }
