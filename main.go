@@ -1,12 +1,10 @@
 package main
 
-import (
-	"app/concurrency"
-)
+import "app/interfaces"
 
 func main() {
 	// functions.Calc()
-	// interfaces.Football()
+	interfaces.Football()
 	// pointers.Pointer1()
 	// slicespkg.Slice1()
 	// concurrency.FetchLineByLine()
@@ -20,6 +18,6 @@ func main() {
 	// workerpool.DeactivateUsersWorkerPool(users, 10)
 	// semaphore.Semaphore2()
 	// workerpool.WorkerPool2()
-	concurrency.Select()
+	// concurrency.Select()
 
 }

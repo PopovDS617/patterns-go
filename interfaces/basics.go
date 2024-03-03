@@ -57,4 +57,12 @@ func Football() {
 		fteam[i].Kick()
 	}
 
+	ct, ok := fteam[0].(SuperPlayer)
+
+	fmt.Println(ct, ok) // would be false bacause it is not Superplayer, it's regular Player
+
+	ct, ok = fteam[10].(SuperPlayer)
+
+	fmt.Println(ct, ok) // true
+
 }
