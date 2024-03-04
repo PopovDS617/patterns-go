@@ -1,10 +1,12 @@
 package main
 
-import "app/interfaces"
+import (
+	"app/concurrency/datarace"
+)
 
 func main() {
 	// functions.Calc()
-	interfaces.Football()
+	// interfaces.Football()
 	// pointers.Pointer1()
 	// slicespkg.Slice1()
 	// concurrency.FetchLineByLine()
@@ -19,5 +21,12 @@ func main() {
 	// semaphore.Semaphore2()
 	// workerpool.WorkerPool2()
 	// concurrency.Select()
-
+	// concurrency.WithErrorGroup()
+	// concurrency.ContextConcurrencyTimeout()
+	// faninfanout.FanInFanOutExample2()
+	// faninfanout.FanInFanOutExampleEx()
+	// pool.SyncPoolExample()
+	// once.OnceExample()
+	// datarace.DataRace()
+	datarace.DataRaceEliminated()
 }
