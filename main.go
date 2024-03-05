@@ -1,7 +1,7 @@
 package main
 
 import (
-	"app/concurrency/datarace"
+	"app/concurrency/projects"
 )
 
 func main() {
@@ -28,5 +28,8 @@ func main() {
 	// pool.SyncPoolExample()
 	// once.OnceExample()
 	// datarace.DataRace()
-	datarace.DataRaceEliminated()
+	// datarace.DataRaceEliminated()
+	// workerpool.WorkerPool3()
+	// projects.IncomeCalculator()
+	projects.ProducerConsumerProblem()
 }
