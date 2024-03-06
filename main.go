@@ -31,5 +31,6 @@ func main() {
 	// datarace.DataRaceEliminated()
 	// workerpool.WorkerPool3()
 	// projects.IncomeCalculator()
-	projects.ProducerConsumerProblem()
+	// projects.ProducerConsumerProblem()
+	projects.DiningPhilosophers()
 }
