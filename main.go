@@ -32,5 +32,6 @@ func main() {
 	// workerpool.WorkerPool3()
 	// projects.IncomeCalculator()
 	// projects.ProducerConsumerProblem()
-	projects.DiningPhilosophers()
+	// projects.DiningPhilosophers()
+	projects.ArmyCommunication()
 }
