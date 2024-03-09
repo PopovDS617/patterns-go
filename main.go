@@ -33,5 +33,6 @@ func main() {
 	// projects.IncomeCalculator()
 	// projects.ProducerConsumerProblem()
 	// projects.DiningPhilosophers()
-	projects.ArmyCommunication()
+	// projects.ArmyCommunication()
+	projects.SleepingBarber()
 }
