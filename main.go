@@ -34,5 +34,6 @@ func main() {
 	// projects.ProducerConsumerProblem()
 	// projects.DiningPhilosophers()
 	// projects.ArmyCommunication()
-	projects.SleepingBarber()
+	// projects.SleepingBarber()
+	projects.ChatServerMain()
 }
