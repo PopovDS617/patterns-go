@@ -1,9 +1,12 @@
 package projects
 
 import (
+	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"sync"
+	"time"
 )
 
 func HTTPGetBody(url string) (interface{}, error) {
@@ -133,3 +136,57 @@ func (memo *Memo) Get(key string) (value interface{}, err error) {
 // 	// Send the result to the client.
 // 	response <- e.res
 // }
+
+func UseCache() {
+
+	urls := []string{
+		"https://google.com", "https://vk.ru", "https://ozon.ru", "https://godoc.org",
+		"https://google.com", "https://vk.ru", "https://ozon.ru", "https://godoc.org", "https://google.com", "https://google.com",
+	}
+
+	m := New(HTTPGetBody)
+
+	wg := sync.WaitGroup{}
+
+	for _, v := range urls {
+		wg.Add(1)
+		go func(url string) {
+
+			start := time.Now()
+
+			value, err := m.Get(url)
+
+			if err != nil {
+				log.Print("error")
+			}
+
+			fmt.Printf("%s %s %d bytes\n", url, time.Since(start), len(value.([]byte)))
+			wg.Done()
+		}(v)
+
+	}
+
+	wg.Wait()
+
+	fmt.Println("-----------------------------------")
+
+	for _, v := range urls {
+		wg.Add(1)
+		go func(url string) {
+
+			start := time.Now()
+
+			value, err := m.Get(url)
+
+			if err != nil {
+				log.Print("error")
+			}
+
+			fmt.Printf("%s %s %d bytes\n", url, time.Since(start), len(value.([]byte)))
+			wg.Done()
+		}(v)
+
+	}
+
+	wg.Wait()
+}
