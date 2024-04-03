@@ -1,8 +1,6 @@
 package main
 
-import (
-	"app/concurrency/projects"
-)
+import "app/interfaces"
 
 func main() {
 	// functions.Calc()
@@ -36,6 +34,7 @@ func main() {
 	// projects.ArmyCommunication()
 	// projects.SleepingBarber()
 	// projects.ChatServerMain()
-	projects.UseCache()
+	// projects.UseCache()
+	interfaces.UseTypeAssertion()
 
 }
