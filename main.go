@@ -36,5 +36,6 @@ func main() {
 	// projects.ChatServerMain()
 	// projects.UseCache()
 	interfaces.UseTypeAssertion()
+	interfaces.UseTypeSwitch()
 
 }
