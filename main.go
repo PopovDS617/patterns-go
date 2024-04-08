@@ -41,6 +41,7 @@ func main() {
 	// interfaces.UseTypeSwitch()
 	// ctx.UseCTXWithCancel()
 	// ctx.UseCTXWithTimeout()
-	ctx.UseCTXWithDeadline()
+	// ctx.UseCTXWithDeadline()
+	ctx.UseCTXWithValue()
 
 }
