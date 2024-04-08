@@ -1,6 +1,8 @@
 package main
 
-import "app/interfaces"
+import (
+	"app/ctx"
+)
 
 func main() {
 	// functions.Calc()
@@ -35,7 +37,10 @@ func main() {
 	// projects.SleepingBarber()
 	// projects.ChatServerMain()
 	// projects.UseCache()
-	interfaces.UseTypeAssertion()
-	interfaces.UseTypeSwitch()
+	// interfaces.UseTypeAssertion()
+	// interfaces.UseTypeSwitch()
+	// ctx.UseCTXWithCancel()
+	// ctx.UseCTXWithTimeout()
+	ctx.UseCTXWithDeadline()
 
 }
