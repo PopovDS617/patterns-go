@@ -1,7 +1,7 @@
 package main
 
 import (
-	"app/ctx"
+	"app/json"
 )
 
 func main() {
@@ -42,6 +42,8 @@ func main() {
 	// ctx.UseCTXWithCancel()
 	// ctx.UseCTXWithTimeout()
 	// ctx.UseCTXWithDeadline()
-	ctx.UseCTXWithValue()
+	// ctx.UseCTXWithValue()
+	json.UseMarshalling()
+	json.UseUnmarshalling()
 
 }
